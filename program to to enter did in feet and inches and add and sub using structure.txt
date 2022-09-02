@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+struct distance
+{
+    int f;
+    float i;
+};
+struct distance add(struct distance d1,struct distance d2);
+struct distance sub(struct distance d1,struct distance d2);
+int main()
+{
+    struct distance d1,d2,d3;
+    cout<<"enter feet of first distance";
+    cin>>d1.f;
+    cout<<"enter inches of first distance";
+    cin>>d1.i;
+    cout<<"enter feet of second distance";
+    cin>>d2.f;
+    cout<<"enter inches of second distance";
+    cin>>d2.i;
+    d3=add(d1,d2);
+    cout<<"addition of distance ="<<d3.f<<"feet"<<d3.i<<"inches"<<endl;
+    d3=sub(d1,d2);
+    cout<<"subtraction of distance ="<<d3.f<<"feet"<<d3.i<<"inches"<<endl;
+}
+ struct distance add(struct distance d1,struct distance d2)
+ {
+     struct distance sum;
+     int a;
+     sum.f=d1.f+d2.f;
+     sum.i=d1.i+d2.i;
+     if(sum.i>=12)
+     {
+         a=(sum.i/12);
+         sum.f=sum.f+a;
+         sum.i=sum.i-(a*12);
+         return sum;
+     }
+ }
+ struct distance sub(struct distance d1,struct distance d2)
+ {
+     struct distance diff;
+     float z, x,y;
+     x=((d1.f*12)+(d1.i));
+     y=((d2.f*12)+(d2.i));
+     if(x>y)
+        z=x-y;
+     else
+        z=y-x;
+     diff.f= z/12;
+     diff.i= z-(diff.f*12);
+     return diff;
+ }
+
+ 
